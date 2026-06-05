@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durjoy Sen Paval - Premium Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Anek Bangla & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Anek Bangla', 'Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3a86ff',
+                        accent: '#ff007f',
+                        darkBg: '#030712',
+                        lightBg: '#faf8f5',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* CSS Variable-based High Contrast Styling System */
+        :root {
+            --bg-color: #030712;
+            --text-color: #f3f4f6;
+            --text-muted: #9ca3af;
+            --card-bg: rgba(13, 18, 30, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --input-bg: #0b0f19;
+            --input-text: #ffffff;
+            --input-border: rgba(255, 255, 255, 0.1);
+            --primary-accent: #3a86ff;
+            --secondary-accent: #ff007f;
+            --contact-bg: linear-gradient(to bottom, #030712, #0b0f19);
+        }
+
+        .light-mode {
+            --bg-color: #faf8f5; /* Warm Luxury Champagne Cream */
+            --text-color: #1c1917; /* Deep Espresso Charcoal */
+            --text-muted: #57534e; /* Earthy Muted Stone */
+            --card-bg: rgba(255, 255, 255, 0.9); /* Warm Ivory glass */
+            --card-border: rgba(217, 119, 6, 0.12); /* Soft bronze highlight border */
+            --input-bg: #ffffff;
+            --input-text: #1c1917;
+            --input-border: rgba(217, 119, 6, 0.18);
+            --primary-accent: #d97706; /* Elegant Golden Bronze */
+            --secondary-accent: #b45309; /* Warm Amber Accent */
+            --contact-bg: linear-gradient(to bottom, #faf8f5, #f3ede2);
+        }
+
+        body {
+            font-family: 'Anek Bangla', 'Plus Jakarta Sans', 'sans-serif';
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Overrides to map static Tailwind colors to Dynamic Adaptive CSS Variables */
+        .text-primary { color: var(--primary-accent) !important; }
+        .text-accent { color: var(--secondary-accent) !important; }
+        .bg-primary { background-color: var(--primary-accent) !important; }
+        .bg-accent { background-color: var(--secondary-accent) !important; }
+        .border-primary { border-color: var(--primary-accent) !important; }
+        .border-accent { border-color: var(--secondary-accent) !important; }
+        
+        .from-primary { 
+            --tw-gradient-from: var(--primary-accent) !important; 
+            --tw-gradient-to: var(--secondary-accent) !important; 
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; 
+        }
+        .to-accent { 
+            --tw-gradient-to: var(--secondary-accent) !important; 
+        }
+
+        /* Glassmorphism Panels Adjustments */
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-nav {
+            background: var(--bg-color);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Specific Light-mode Readability Overrides */
+        .light-mode .text-gray-400, 
+        .light-mode .text-slate-400,
+        .light-mode .text-gray-500 {
+            color: #57534e !important;
+        }
+
+        .light-mode .text-gray-300,
+        .light-mode .text-slate-300 {
+            color: #1c1917 !important;
+        }
+
+        .light-mode h1, .light-mode h2, .light-mode h3, .light-mode h4, .light-mode h5 {
+            color: #1c1917 !important;
+        }
+
+        .light-mode label {
+            color: #292524 !important;
+        }
+
+        .light-mode input, .light-mode textarea {
+            background-color: #ffffff !important;
+            color: #1c1917 !important;
+            border: 1px solid rgba(217, 119, 6, 0.18) !important;
+        }
+        
+        .light-mode input::placeholder, .light-mode textarea::placeholder {
+            color: #a8a29e !important;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-accent);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-accent);
+        }
+
+        /* Smooth Floating Animations with GPU Acceleration */
+        @keyframes float-slow {
+            0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            50% { transform: translate3d(0, -12px, 0) rotate(3deg); }
+        }
+        .animate-float {
+            animation: float-slow 6s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.15; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.05); }
+        }
+        .glow-bg {
+            animation: pulse-glow 8s ease-in-out infinite;
+            will-change: opacity, transform;
+        }
+
+        /* Reveal on Scroll Transitions - Highly Optimized hardware accelerated classes */
+        .reveal {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Portfolio Image Scroll Animation */
+        .portfolio-card-img-container {
+            overflow: hidden;
+            height: 230px;
+            position: relative;
+        }
+        .portfolio-card-img {
+            transition: transform 5s ease-in-out;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+        }
+        .portfolio-card-img-container:hover .portfolio-card-img {
+            transform: translate3d(0, calc(-100% + 230px), 0);
+        }
+
+        /* Spinning Border Loader styling */
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-white">
+
+    <!-- Glowing Ambience Particles -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[-5%] left-[-5%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-br from-primary/15 to-transparent blur-[100px] glow-bg"></div>
+        <div class="absolute bottom-[-5%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-br from-accent/15 to-transparent blur-[100px] glow-bg" style="animation-delay: 3s;"></div>
+    </div>
+
+    <!-- Header Navigation Bar (Slim and Premium, h-16) -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:opacity-80 transition">DSP</span>
+                <span class="text-xs font-light border-l border-gray-500 pl-2 text-gray-400 tracking-wider">CREATIVE</span>
+            </a>
+            
+            <!-- Desktop Nav Menu Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold tracking-wide" id="desktop-nav">
+                <!-- Filled dynamically by JavaScript -->
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-3">
+                <!-- Language Toggle Button -->
+                <button id="lang-toggle-btn" class="px-3 py-1.5 rounded-full border border-white/10 glass-panel text-xs font-bold hover:border-primary transition duration-300 flex items-center gap-1.5">
+                    <i class="fa-solid fa-earth-americas text-primary"></i>
+                    <span id="lang-btn-text">English</span>
+                </button>
+                
+                <!-- Premium Theme Toggle Button -->
+                <button id="theme-toggle-btn" class="w-9 h-9 rounded-full glass-panel flex items-center justify-center border border-white/10 hover:border-accent transition duration-300" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon text-primary text-sm" id="theme-icon"></i>
+                </button>
+
+                <!-- Enlarged and enhanced premium CTA button in the Header -->
+                <a href="#contact" id="nav-cta-btn" class="px-6 py-2.5 md:px-7 md:py-3.5 rounded-full bg-gradient-to-r from-primary to-accent text-white text-xs md:text-sm font-bold hover:shadow-[0_0_20px_rgba(58,134,255,0.4)] transition duration-300 transform hover:-translate-y-0.5">যোগাযোগ করুন</a>
+            </div>
+
+            <!-- Mobile Controller (Increased Touch Targets to w-10 h-10 for easy tapping) -->
+            <div class="flex items-center space-x-2 md:hidden">
+                <button id="theme-toggle-btn-mobile" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center border border-white/5 active:scale-95 transition" aria-label="Toggle Theme Mobile">
+                    <i class="fa-solid fa-moon text-primary text-xs" id="theme-icon-mobile"></i>
+                </button>
+                <button id="lang-toggle-btn-mobile" class="w-10 h-10 rounded-full border border-white/5 glass-panel text-[11px] font-bold active:scale-95 transition flex items-center justify-center">
+                    <span id="lang-btn-text-mobile">EN</span>
+                </button>
+                <button id="mobile-menu-btn" class="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-white focus:outline-none active:scale-95 transition" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation (100% Solid Solid Dark Background fixed to prevent overlapping texts) -->
+        <div id="mobile-drawer" class="fixed top-16 left-0 w-full h-[calc(100vh-64px)] bg-[#030712] border-t border-white/5 transform translate-x-full transition-transform duration-300 z-50 shadow-2xl flex flex-col justify-center invisible pointer-events-none">
+            <div class="flex flex-col items-center justify-center space-y-6 text-lg font-medium" id="mobile-nav-links">
+                <!-- Filled dynamically -->
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-16">
+        
+        <!-- Hero Section -->
+        <section id="home" class="min-h-[calc(100vh-64px)] flex items-center justify-center relative px-4 py-12 lg:py-0 overflow-hidden">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-panel text-xs text-primary font-semibold border-primary/20 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span id="status-badge-text">নতুন কাজের জন্য প্রস্তুত</span>
+                    </div>
+                    <!-- Target text requested by user modified and bound securely to variables -->
+                    <h2 class="text-base font-semibold text-gray-400 tracking-wide" id="hero-greeting">আমার ওয়েবসাইটে স্বাগতম</h2>
+                    <h1 class="text-3xl md:text-5xl font-bold tracking-tight" id="hero-name">Durjoy Sen Paval</h1>
+                    <div class="h-10 flex items-center justify-center lg:justify-start">
+                        <span class="text-xl md:text-3xl font-bold bg-gradient-to-r from-primary via-purple-400 to-accent bg-clip-text text-transparent" id="typed-text"></span>
+                        <span class="animate-pulse text-primary font-bold text-xl md:text-3xl ml-0.5">|</span>
+                    </div>
+                    <p class="text-gray-400 text-sm md:text-base max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium" id="hero-desc">
+                        <!-- Filled dynamically -->
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-3">
+                        <a href="#projects" id="hero-primary-btn" class="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-white font-semibold text-center text-xs hover:shadow-[0_0_15px_rgba(58,134,255,0.3)] transition-all duration-300 transform hover:-translate-y-0.5">
+                            আমার কাজ দেখুন <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                        </a>
+                        <a href="#contact" id="hero-secondary-btn" class="w-full sm:w-auto px-6 py-3 rounded-full glass-panel text-xs font-semibold text-center hover:bg-white/10 transition-all duration-300 border border-white/10 transform hover:-translate-y-0.5">
+                            যোগাযোগ করুন
+                        </a>
+                    </div>
+
+                    <!-- Social Handles -->
+                    <div class="flex items-center justify-center lg:justify-start gap-4 pt-6" id="hero-socials">
+                        <!-- Filled dynamically -->
+                    </div>
+                </div>
+
+                <!-- Highly Customized Premium "SQUIRCLE" Frame (With dual offset rotating frames) -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 group animate-float">
+                        <!-- Background offset squircle frame -->
+                        <div class="absolute inset-0 border border-dashed border-primary/40 rounded-[2.5rem] rotate-12 group-hover:rotate-0 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-tr from-primary via-transparent to-accent rounded-[2.5rem] blur opacity-40 group-hover:opacity-65 transition-all duration-700"></div>
+                        
+                        <!-- Smooth Squircle Image Container -->
+                        <div class="relative w-full h-full bg-[#0d121e] rounded-[2.5rem] overflow-hidden flex items-center justify-center p-1.5 border border-white/10 shadow-2xl">
+                            <img id="hero-avatar" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK8LYlWSvTOQ3dzDjDzTnsx2GZG1wkdn2W3wGPVgkCjuUyuXHCfgKfhHXm1ItnEbpi1crrQmf9eBkGCMgs92Q2e-dGq48JczbQt0bwadr-IPcJodxDOQOb8rjHpFcYS564CGBZ3pfF6wYNUp1kfJ-4AsnocsJ861ly1f2h8gAS81OvRKpiCTqk-0wxkys/s16000/DURJOY%20SEN%20PAVAL%20PHOTO.png" alt="Durjoy Sen Paval" class="w-full h-full object-cover rounded-[2.2rem] transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK8LYlWSvTOQ3dzDjDzTnsx2GZG1wkdn2W3wGPVgkCjuUyuXHCfgKfhHXm1ItnEbpi1crrQmf9eBkGCMgs92Q2e-dGq48JczbQt0bwadr-IPcJodxDOQOb8rjHpFcYS564CGBZ3pfF6wYNUp1kfJ-4AsnocsJ861ly1f2h8gAS81OvRKpiCTqk-0wxkys/s16000/DURJOY%20SEN%20PAVAL%20PHOTO.png'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4 max-w-7xl mx-auto reveal">
+            <div class="text-center space-y-2 mb-12">
+                <span class="text-primary text-xs font-bold uppercase tracking-widest" id="about-mini-title">আমার গল্প</span>
+                <h2 class="text-2xl md:text-4xl font-bold" id="about-main-title">আমার কাজের মূল লক্ষ্য</h2>
+                <div class="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Visual Infographic -->
+                <div class="grid grid-cols-2 gap-4" id="about-infographics">
+                    <!-- Dynamic Infographic Content -->
+                </div>
+
+                <!-- Text Presentation -->
+                <div class="space-y-4">
+                    <h3 class="text-xl md:text-2xl font-bold leading-tight" id="about-catchphrase">ডিজাইন কেবল পিক্সেল সাজানো নয়, এটি ব্র্যান্ডের প্রাণ সঞ্চার করে।</h3>
+                    <p class="text-gray-400 leading-relaxed text-sm md:text-base font-medium" id="about-long-desc">
+                        <!-- Filled dynamically -->
+                    </p>
+                    
+                    <div class="border-t border-white/10 pt-4 grid grid-cols-2 gap-4">
+                        <div>
+                            <span class="block text-3xl font-bold text-primary" id="stat-projects">১৫০+</span>
+                            <span class="text-gray-400 text-xs font-bold" id="stat-projects-label">সফল প্রজেক্ট সম্পন্ন</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-bold text-accent" id="stat-experience">৩+</span>
+                            <span class="text-gray-400 text-xs font-bold" id="stat-experience-label">বছরের কাজের অভিজ্ঞতা</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                        <a id="btn-phone" href="tel:+8801866135113" class="flex items-center justify-center gap-2 px-5 py-3 glass-panel rounded-xl hover:bg-white/5 transition text-xs font-semibold">
+                            <i class="fa-solid fa-phone text-primary"></i> <span id="btn-phone-text">কল করুন</span>
+                        </a>
+                        <a id="btn-email" href="mailto:info.ddtbd@gmail.com" class="flex items-center justify-center gap-2 px-5 py-3 glass-panel rounded-xl hover:bg-white/5 transition text-xs font-semibold">
+                            <i class="fa-solid fa-envelope text-accent"></i> <span id="btn-email-text">ইমেইল পাঠান</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="py-20 bg-black/10 border-y border-white/5 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center space-y-2 mb-12">
+                    <span class="text-primary text-xs font-bold uppercase tracking-widest" id="skills-mini-title">আমার কর্মদক্ষতা</span>
+                    <h2 class="text-2xl md:text-4xl font-bold" id="skills-main-title">টেকনিক্যাল স্কিল সেট</h2>
+                    <div class="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Deal Planner Section (Premium Vibe Booster) -->
+        <section id="deal-planner" class="py-20 px-4 max-w-5xl mx-auto reveal">
+            <div class="glass-panel p-6 md:p-10 rounded-3xl border border-white/5 relative overflow-hidden shadow-2xl">
+                <!-- Highlight badge & Counter -->
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-white/5">
+                    <div class="flex items-center gap-2">
+                        <span class="relative flex h-3.5 w-3.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent"></span>
+                        </span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-accent" id="deal-hot-deal">এই সপ্তাহের স্পেশাল অফার</span>
+                    </div>
+                    <div class="px-3.5 py-1.5 rounded-full bg-accent/15 text-accent text-xs font-bold border border-accent/20 animate-pulse" id="deal-slot-tracker">
+                        🔥 আর মাত্র ২টি প্রজেক্ট স্লট বাকি আছে!
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-5">
+                        <h3 class="text-xl md:text-3xl font-bold" id="deal-title">আপনার প্রজেক্টের বাজেট ও অফার নিজেই নির্ধারণ করুন</h3>
+                        <p class="text-gray-400 text-xs md:text-sm leading-relaxed font-semibold" id="deal-sub">
+                            নিচের অপশনগুলো থেকে আপনার কাঙ্ক্ষিত ক্যাটাগরি এবং ডেলিভারির গতি সিলেক্ট করে ডাইনামিক প্রাইস অফারটি লক করুন।
+                        </p>
+
+                        <!-- Deal Categories Radio selector -->
+                        <div class="grid grid-cols-2 gap-3" id="deal-options-container">
+                            <!-- Injected by JavaScript -->
+                        </div>
+
+                        <!-- 24-Hour Express Delivery Toggle Slider -->
+                        <div class="flex items-center justify-between p-3.5 rounded-xl glass-panel border border-white/5 bg-white/5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-bolt text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs md:text-sm font-bold" id="priority-title">২৪-ঘণ্টা এক্সপ্রেস ডেলিভারি</h4>
+                                    <p class="text-[10px] text-gray-500 font-bold" id="priority-desc">দ্রুততম সময়ে সোর্স ফাইলসহ হাই-স্পিড সার্ভিস</p>
+                                </div>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="express-toggle" class="sr-only peer">
+                                <div class="w-11 h-6 bg-white/10 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Deal Invoice Display Dashboard -->
+                    <div class="lg:col-span-5 glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between h-full bg-gradient-to-b from-white/5 to-transparent relative">
+                        <div class="space-y-4">
+                            <span class="text-[10px] uppercase text-primary font-extrabold tracking-widest" id="deal-calc-label">ডিল ক্যালকুলেটর</span>
+                            
+                            <!-- Dynamic Package Price -->
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-4xl font-extrabold text-primary" id="deal-price-amount">$১১৯</span>
+                                <span class="text-xs text-gray-400 font-bold" id="deal-price-type">/ মাত্র</span>
+                            </div>
+
+                            <!-- Live Feature Checklist based on Selected Category -->
+                            <ul class="space-y-2 text-xs text-gray-400 border-t border-white/5 pt-4 font-bold" id="deal-features-list">
+                                <!-- Injected by JS -->
+                            </ul>
+                        </div>
+
+                        <div class="pt-6">
+                            <button id="deal-lock-btn" class="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white text-xs font-bold hover:shadow-[0_0_15px_rgba(58,134,255,0.3)] transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                                <span>ডিলটি বুক করুন!</span>
+                                <i class="fa-solid fa-lock-open text-[11px]"></i>
+                            </button>
+                            <p class="text-center text-[10px] text-gray-500 mt-2.5 font-bold" id="deal-guarantee">🛡️ ১০০% সন্তুষ্টি অথবা ক্যাশব্যাক গ্যারান্টি</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery Section -->
+        <section id="projects" class="py-20 px-4 max-w-7xl mx-auto reveal">
+            <div class="text-center space-y-2 mb-12">
+                <span class="text-accent text-xs font-bold uppercase tracking-widest" id="projects-mini-title">আমার কাজসমূহ</span>
+                <h2 class="text-2xl md:text-4xl font-bold" id="projects-main-title">সাম্প্রতিক প্রজেক্ট কালেকশন</h2>
+                <div class="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Category filter buttons -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-10" id="portfolio-filters">
+                <!-- Filter buttons rendered dynamically -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                <!-- Dynamic Projects Rendered here -->
+            </div>
+        </section>
+
+        <!-- Experience Section (Highly Premium Staggered Split-Line Layout, optimized and extremely clean) -->
+        <section id="experience" class="py-20 bg-black/10 border-t border-white/5 reveal">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center space-y-2 mb-16">
+                    <span class="text-primary text-xs font-bold uppercase tracking-widest" id="experience-mini-title">কাজের অভিজ্ঞতা</span>
+                    <h2 class="text-2xl md:text-4xl font-bold" id="experience-main-title">কর্মজীবন যাত্রা</h2>
+                    <div class="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Container of premium experience timeline blocks -->
+                <div class="max-w-4xl mx-auto space-y-8" id="experience-timeline">
+                    <!-- Dynamic Timeline Cards will render here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 px-4 max-w-7xl mx-auto reveal">
+            <div class="text-center space-y-2 mb-12">
+                <span class="text-accent text-xs font-bold uppercase tracking-widest" id="testimonials-mini-title">প্রশংসাপত্র</span>
+                <h2 class="text-2xl md:text-4xl font-bold" id="testimonials-main-title">ক্লায়েন্টদের সন্তুষ্টি ও মতামত</h2>
+                <div class="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="testimonials-grid">
+                <!-- Dynamic Testimonials -->
+            </div>
+        </section>
+
+        <!-- Contact Section with Dynamic Theme-Aware Gradient Background -->
+        <section id="contact" class="py-20 border-t border-white/5 reveal transition-all duration-300" style="background: var(--contact-bg);">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center space-y-2 mb-12">
+                    <span class="text-primary text-xs font-bold uppercase tracking-widest" id="contact-mini-title">যোগাযোগ</span>
+                    <h2 class="text-2xl md:text-4xl font-bold" id="contact-main-title">আসুন একসাথে কাজ করি</h2>
+                    <div class="w-12 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Contact Form Card -->
+                    <div class="lg:col-span-7 glass-panel p-6 md:p-8 rounded-3xl border border-white/5 relative overflow-hidden flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <!-- Title & Responsive Heading in Glass Panel -->
+                            <div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-4 border-b border-white/5">
+                                <h3 class="text-lg font-bold flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                        <i class="fa-solid fa-envelope-open-text text-sm"></i>
+                                    </div>
+                                    <span id="form-card-title">সরাসরি বার্তা পাঠান</span>
+                                </h3>
+                            </div>
+                            
+                            <!-- Custom Message Feedback Box -->
+                            <div id="contact-feedback" class="hidden p-3.5 rounded-xl text-xs font-semibold mb-3 transition-all duration-300"></div>
+
+                            <form id="portfolio-contact-form" class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="space-y-1.5">
+                                        <label class="text-xs font-bold" id="label-name">Your Name <span class="text-accent">*</span></label>
+                                        <div class="relative">
+                                            <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                                            <input type="text" name="name" required placeholder="যেমন: আবির রহমান" id="input-name" class="w-full pl-10 pr-4 py-3 text-xs rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-gray-500 focus:outline-none focus:border-primary transition duration-300 font-bold">
+                                        </div>
+                                    </div>
+                                    <div class="space-y-1.5">
+                                        <label class="text-xs font-bold" id="label-phone">Phone Number <span class="text-accent">*</span></label>
+                                        <div class="relative">
+                                            <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                                            <input type="tel" name="phone" required placeholder="যেমন: 017xxxxxxxx" id="input-phone" class="w-full pl-10 pr-4 py-3 text-xs rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-gray-500 focus:outline-none focus:border-primary transition duration-300 font-bold">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-1.5">
+                                    <label class="text-xs font-bold" id="label-email">Email Address <span class="text-accent">*</span></label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                                        <input type="email" name="email" required placeholder="যেমন: details@example.com" id="input-email" class="w-full pl-10 pr-4 py-3 text-xs rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-gray-500 focus:outline-none focus:border-primary transition duration-300 font-bold">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label class="text-xs font-bold" id="label-message">Your Message <span class="text-accent">*</span></label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-message absolute left-4 top-4 text-gray-400 text-xs"></i>
+                                        <textarea name="message" rows="4" required placeholder="আপনার প্রজেক্টের ব্যাপারে বিস্তারিত এখানে লিখুন..." id="input-message" class="w-full pl-10 pr-4 py-3 text-xs rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--input-text)] placeholder-gray-500 focus:outline-none focus:border-primary transition duration-300 resize-none font-bold"></textarea>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-bold text-xs hover:shadow-[0_4px_15px_rgba(58,134,255,0.15)] transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                                    <span id="btn-submit-text">বার্তা পাঠান</span>
+                                    <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Details & Map (Dark-mode CSS filters adaptive with dynamic class toggling) -->
+                    <div class="lg:col-span-5 flex flex-col gap-6 justify-between">
+                        <div class="glass-panel p-6 rounded-3xl border border-white/5 shadow-2xl space-y-6">
+                            <h3 class="text-xl font-bold" id="info-card-title">যোগাযোগের ঠিকানা</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                        <i class="fa-solid fa-phone text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500 font-bold" id="info-phone-label">ফোন করুন</span>
+                                        <a href="tel:01866135113" class="font-bold text-sm hover:text-primary transition" id="info-phone">০১৮৬৬১৩৫১১৩</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                                        <i class="fa-solid fa-envelope text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500 font-bold" id="info-email-label">ইমেইল করুন</span>
+                                        <a href="mailto:info.ddtbd@gmail.com" class="font-bold text-sm hover:text-accent transition" id="info-email">info.ddtbd@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                                        <i class="fa-solid fa-map-location-dot text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-500 font-bold" id="info-location-label">লোকেশন</span>
+                                        <span class="font-bold text-sm" id="info-location">খুলনা, বাংলাদেশ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Embedded Responsive Google Map -->
+                        <div class="glass-panel p-2 rounded-3xl border border-white/5 overflow-hidden h-60 relative shadow-2xl">
+                            <iframe 
+                                id="google-map-iframe"
+                                class="w-full h-full rounded-2xl grayscale invert contrast-125 opacity-80 transition-all duration-500" 
+                                src="" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Area -->
+    <footer class="bg-black/40 border-t border-white/5 py-10 text-center text-gray-500 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex justify-center space-x-4 mb-2" id="footer-socials">
+                <!-- Filled dynamically -->
+            </div>
+            <p class="text-xs font-semibold text-gray-400">© ২০২৬ <span class="text-primary font-bold">Durjoy Sen Paval</span>. <span id="footer-copy">সর্বস্বত্ব সংরক্ষিত।</span></p>
+            <p class="text-[10px] text-gray-600 font-bold" id="footer-sub-copy">আধুনিক এবং সম্পূর্ণ হ্যান্ডক্রাফটেড কোড ও ডিজাইন দিয়ে তৈরি।</p>
+        </div>
+    </footer>
+
+    <!-- Dual Theme & Translation Data Controller Block -->
+    <script>
+        /******************************************************************
+         * DYNAMIC BILINGUAL DATA CONFIGURATION (১০০% কাস্টমাইজযোগ্য ডেটা অবজেক্ট)
+         * UI/UX references are fully removed as per the user request.
+         ******************************************************************/
+        const BILINGUAL_DATA = {
+            bn: {
+                nav: {
+                    home: "প্রচ্ছদ",
+                    about: "সম্পর্কে",
+                    skills: "দক্ষতা",
+                    projects: "পোর্টফোলিও",
+                    experience: "অভিজ্ঞতা",
+                    contact: "যোগাযোগ",
+                    cta: "যোগাযোগ করুন"
+                },
+                profile: {
+                    name: "Durjoy Sen Paval",
+                    title: "Professional Graphic Designer & Content Creator",
+                    phone: "01866135113",
+                    email: "info.ddtbd@gmail.com",
+                    location: "খুলনা, বাংলাদেশ",
+                    avatar: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK8LYlWSvTOQ3dzDjDzTnsx2GZG1wkdn2W3wGPVgkCjuUyuXHCfgKfhHXm1ItnEbpi1crrQmf9eBkGCMgs92Q2e-dGq48JczbQt0bwadr-IPcJodxDOQOb8rjHpFcYS564CGBZ3pfF6wYNUp1kfJ-4AsnocsJ861ly1f2h8gAS81OvRKpiCTqk-0wxkys/s16000/DURJOY%20SEN%20PAVAL%20PHOTO.png", 
+                    description: "আমি একজন পেশাদার গ্রাফিক ডিজাইনার এবং কনটেন্ট ক্রিয়েটর। আধুনিক ভিজ্যুয়াল আর্ট, ক্রিয়েটিভ ব্র্যান্ডিং এবং ইউনিক সামাজিক যোগাযোগ মাধ্যম (Social Media) ডিজাইনের মাধ্যমে যেকোনো ব্র্যান্ডের আসল সৌন্দর্য ও স্বকীয়তা ফুটিয়ে তোলাই আমার মূল লক্ষ্য।",
+                    aboutLong: "গত ৩ বছরেরও বেশি সময় ধরে আমি বিভিন্ন আন্তর্জাতিক ও দেশীয় ব্র্যান্ডের সাথে কাজ করছি। আমি বিশ্বাস করি একটি সুন্দর এবং মিনিমালিস্ট ডিজাইন গ্রাহকের অবচেতন মনে অত্যন্ত ইতিবাচক প্রভাব ফেলে। গ্রাফিক ডিজাইনের পাশাপাশি আমি নিয়মিত প্রিমিয়াম ভিডিও কনটেন্ট তৈরি করি যা ব্র্যান্ডকে তার টার্গেট অডিয়েন্সের সাথে যুক্ত করতে সাহায্য করে।",
+                    stats: {
+                        projectsCount: "১৫০+",
+                        experienceYears: "৩+ বছর",
+                        projectsLabel: "সফল প্রজেক্ট সম্পন্ন",
+                        experienceLabel: "বছরের কাজের অভিজ্ঞতা"
+                    },
+                    socials: {
+                        facebook: "https://www.facebook.com/durjoysenpavaldsp",
+                        instagram: "https://www.instagram.com/dspdurjoyofficial?igsh=aG50cG9naWwwMGIy",
+                        linkedin: "https://www.linkedin.com/in/durjoysenpaval",
+                        behance: "https://www.behance.net/durjoysenpaval"
+                    }
+                },
+                statusBadge: "নতুন কাজের জন্য প্রস্তুত",
+                greeting: "আমার ওয়েবসাইটে স্বাগতম",
+                heroButtons: {
+                    primary: "আমার কাজ দেখুন",
+                    secondary: "যোগাযোগ করুন"
+                },
+                typingTexts: [
+                    "প্রফেশনাল গ্রাফিক ডিজাইনার",
+                    "ক্রিয়েটিভ কনটেন্ট ক্রিয়েটর",
+                    "ব্র্যান্ডিং এবং লোগো ডিজাইনার",
+                    "ভিজ্যুয়াল স্টোরিটেলার"
+                ],
+                aboutSection: {
+                    miniTitle: "আমার গল্প",
+                    mainTitle: "আমার কাজের মূল লক্ষ্য",
+                    catchphrase: "ডিজাইন কেবল পিক্সেল সাজানো নয়, এটি ব্র্যান্ডের প্রাণ সঞ্চার করে।",
+                    btnPhone: "কল করুন",
+                    btnEmail: "ইমেল পাঠান",
+                    infographics: [
+                        { title: "ক্রিয়েটিভ আর্ট", desc: "আধুনিক ও অসাধারণ ক্রিয়েটিভ কনসেপ্ট তৈরি করা।", icon: "fa-wand-magic-sparkles", color: "primary" },
+                        { title: "ব্র্যান্ড আইডেন্টিটি", desc: "প্রতিটি ব্র্যান্ডের আলাদা সুন্দর গল্প ফুটিয়ে তোলা।", icon: "fa-bullseye", color: "accent" },
+                        { title: "সোশ্যাল মিডিয়া আর্ট", desc: "মনমুগ্ধকর ফেসবুক, ইনস্টাগ্রাম ও ডিজিটাল ব্যানার ডিজাইন।", icon: "fa-rectangle-ad", color: "primary" },
+                        { title: "কনটেন্ট ক্রিয়েশন", desc: "ভিজ্যুয়াল এডিটিং ও ইন্টারেক্টিভ কনটেন্ট উৎপাদন।", icon: "fa-circle-play", color: "accent" }
+                    ]
+                },
+                skillsSection: {
+                    miniTitle: "আমার কর্মদক্ষতা",
+                    mainTitle: "টেকনিক্যাল স্কিল সেট"
+                },
+                skills: [
+                    { name: "Brand Identity Design", level: 95, icon: "fa-palette", color: "#3a86ff" },
+                    { name: "Social Media Campaign Ads", level: 92, icon: "fa-rectangle-ad", color: "#ff007f" },
+                    { name: "Adobe Illustrator & Photoshop", level: 98, icon: "fa-wand-magic-sparkles", color: "#10b981" },
+                    { name: "Video Editing & Content Creation", level: 90, icon: "fa-video", color: "#f59e0b" },
+                    { name: "Typography & Visual Arts", level: 85, icon: "fa-font", color: "#8b5cf6" },
+                    { name: "Motion Graphics & Animation", level: 80, icon: "fa-film", color: "#ec4899" }
+                ],
+                dealPlanner: {
+                    hotDeal: "এই সপ্তাহের স্পেশাল অফার",
+                    slotTracker: "🔥 আর মাত্র ২টি প্রজেক্ট স্লট বাকি আছে!",
+                    title: "আপনার প্রজেক্টের বাজেট ও অফার নিজেই নির্ধারণ করুন",
+                    sub: "নিচের অপশনগুলো থেকে আপনার কাঙ্ক্ষিত ক্যাটাগরি এবং ডেলিভারি স্পিড সিলেক্ট করে ডাইনামিক প্রাইস অফারটি লক করুন।",
+                    priorityTitle: "২৪-ঘণ্টা এক্সপ্রেস ডেলিভারি",
+                    priorityDesc: "দ্রুততম সময়ে সোর্স ফাইলসহ হাই-স্পিড সার্ভিস",
+                    calcLabel: "ডিল ক্যালকুলেটর",
+                    priceType: "/ মাত্র",
+                    lockBtn: "ডিলটি বুক করুন!",
+                    guarantee: "🛡️ ১০০% সন্তুষ্টি অথবা ক্যাশব্যাক গ্যারান্টি",
+                    categories: [
+                        { id: "brand", name: "ব্র্যান্ড ডিজাইন ও লোগো", price: 99, features: ["কাস্টম ভেক্টর লোগো", "কালার প্যালেট নির্দেশিকা", "৩টি ডিজাইন অপশন", "৩ দিনে সাধারণ ডেলিভারি"] },
+                        { id: "print", name: "প্রিমিয়াম প্রিন্ট ও ফ্লায়ার", price: 149, features: ["ভেক্টর সোর্স ফাইল", "প্রিন্ট-রেডি ফাইল (PDF)", "২টি রিভিশন অফার", "৫ দিনে সাধারণ ডেলিভারি"] },
+                        { id: "content", name: "সোশ্যাল মিডিয়া আর্ট প্যাক", price: 79, features: ["৫টি কাস্টম ব্যানার", "থাম্বনেইল এডিটিং", "আনলিমিটেড রিভিশন", "২ দিনে সাধারণ ডেলিভারি"] },
+                        { id: "video", name: "ভিডিও মেকিং ও এডিটিং", price: 129, features: ["কালার গ্রেডিং সাপোর্ট", "ব্যাকগ্রাউন্ড মিউজিক এড", "১০৮০p এক্সপোর্ট সাইজ", "৪ দিনে সাধারণ ডেলিভারি"] }
+                    ]
+                },
+                projectsSection: {
+                    miniTitle: "আমার কাজসমূহ",
+                    mainTitle: "সাম্প্রতিক প্রজেক্ট কালেকশন",
+                    filterAll: "সবগুলো",
+                    filterBrand: "ব্র্যান্ডিং",
+                    filterUiux: "সোশ্যাল মিডিয়া",
+                    filterCreative: "গ্রাফিক আর্ট",
+                    liveBtn: "লাইভ প্রিভিউ"
+                },
+                projects: [
+                    {
+                        title: "প্রিমিয়াম ব্র্যান্ড আইডেন্টিটি - ইকোপ্যাক",
+                        category: "brand",
+                        categoryLabel: "ব্র্যান্ডিং",
+                        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "পরিবেশবান্ধব প্যাকেজিং ব্র্যান্ডের সম্পূর্ণ ভিজ্যুয়াল ও লোগো আর্ট।"
+                    },
+                    {
+                        title: "সোশ্যাল মিডিয়া ক্যাম্পেইন - ফুড ফেস্ট",
+                        category: "uiux",
+                        categoryLabel: "সোশ্যাল মিডিয়া",
+                        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "রেস্টুরেন্ট ও ফুড ব্র্যান্ডের জন্য কাস্টম ব্যানার এবং অফার ডিজাইন।"
+                    },
+                    {
+                        title: "ভ্রমণ ব্লগ থাম্বনেইল ও গ্রাফিক্স আর্ট",
+                        category: "creative",
+                        categoryLabel: "গ্রাফিক আর্ট",
+                        image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "সোশ্যাল মিডিয়ায় সর্বোচ্চ অ্যাটেনশন গ্র্যাব করার মতো আকর্ষণীয় থাম্বনেইল আর্ট।"
+                    },
+                    {
+                        title: "প্রিমিয়াম কর্পোরেট ফ্লায়ার ও ব্রোশিওর",
+                        category: "uiux",
+                        categoryLabel: "সোশ্যাল মিডিয়া",
+                        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "কর্পোরেট বিজনেসের জন্য মিনিমালিস্ট ও অত্যন্ত আধুনিক ফ্লায়ার আর্ট।"
+                    },
+                    {
+                        title: "কর্পোরেট রি-ব্র্যান্ডিং কিট",
+                        category: "brand",
+                        categoryLabel: "ব্র্যান্ডিং",
+                        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "একটি গ্লোবাল আইটি ফার্মের অফিসিয়াল স্টেশনারি ও ব্রোশিওর ডিজাইন।"
+                    },
+                    {
+                        title: "ডিজিটাল আর্টওয়ার্ক - ফিউচারিস্টিক সিটি",
+                        category: "creative",
+                        categoryLabel: "গ্রাফিক আর্ট",
+                        image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "মেটাভার্স কনসেপ্ট আর্ট যা আধুনিক থ্রিডি ভাইবস তৈরি করে।"
+                    }
+                ],
+                experienceSection: {
+                    miniTitle: "কাজের অভিজ্ঞতা",
+                    mainTitle: "কর্মজীবন যাত্রা"
+                },
+                experience: [
+                    {
+                        role: "সিনিয়র ভিজ্যুয়াল ডিজাইনার",
+                        company: "ডিজিটাল ড্রিম টেক (DDT)",
+                        duration: "২০২৩ - বর্তমান",
+                        desc: "বিভিন্ন হাই-এন্ড ব্র্যান্ডের সামাজিক যোগাযোগ মাধ্যমের বিজ্ঞাপন ডিজাইন, প্রফেশনাল ফটো ও ভিডিও এডিটিং এবং ক্রিয়েটিভ ব্র্যান্ডিং ডিজাইন পরিচালনা করা।"
+                    },
+                    {
+                        role: "লিড সোশ্যাল মিডিয়া ডিজাইনার",
+                        company: "ফ্রিল্যান্স কনসালটেন্সি (গ্লোবাল মার্কেট)",
+                        duration: "২০২১ - ২০২৩",
+                        desc: "ফাইবার ও আপওয়ার্কের মাধ্যমে ৫০টিরও বেশি আন্তর্জাতিক ক্লায়েন্টের জন্য আকর্ষক সামাজিক যোগাযোগ মাধ্যমের ব্যানার ও বিজ্ঞাপন তৈরি করা।"
+                    }
+                ],
+                testimonialsSection: {
+                    miniTitle: "প্রশংসাপত্র",
+                    mainTitle: "ক্লায়েন্টদের সন্তুষ্টি ও মতামত"
+                },
+                testimonials: [
+                    {
+                        name: "রাফসান আল হাসিব",
+                        role: "ফাউন্ডার, ড্রিম টেক আইটি",
+                        text: "দুর্জয় সেন পাভালের সাথে কাজ করার অভিজ্ঞতা চমৎকার ছিল। তিনি আমাদের লোগো এবং ব্র্যান্ডিং কিটটিকে এতো নিখুঁत ও নান্দনিকভাবে ডিজাইন করেছেন যে আমরা খুবই সন্তুষ্ট।",
+                        image: "https://placehold.co/100x100/3a86ff/ffffff?text=RH"
+                    },
+                    {
+                        name: "কানিজ ফাতেমা",
+                        role: "মার্কেটিং ডিরেক্টর, ফুডফ্রিজ",
+                        text: "সে আমাদের ফেসবুক পেজের সম্পূর্ণ ব্র্যান্ডিং ও বিজ্ঞাপন ডিজাইন করেছে। ইউজারদের রিভিউ বেশ ভালো এবং এটি দেখতে অত্যন্ত ঝকঝকে ও আধুনিক হয়েছে। রিকমেন্ডেড!",
+                        image: "https://placehold.co/100x100/ff007f/ffffff?text=KF"
+                    }
+                ],
+                contactSection: {
+                    miniTitle: "যোগাযোগ",
+                    mainTitle: "আসুন একসাথে কাজ করি",
+                    formTitle: "সরাসরি বার্তা পাঠান",
+                    labelName: "Your Name",
+                    labelPhone: "Phone Number",
+                    labelEmail: "Email Address",
+                    labelMessage: "Your Message",
+                    placeholderName: "উদাঃ আবির রহমান",
+                    placeholderPhone: "উদাঃ 017xxxxxxxx",
+                    placeholderEmail: "উদাঃ details@example.com",
+                    placeholderMessage: "আপনার প্রজেক্টের ব্যাপারে বিস্তারিত এখানে লিখুন...",
+                    btnSubmit: "বার্তা পাঠান",
+                    infoTitle: "যোগাযোগের ঠিকানা",
+                    infoPhoneLabel: "ফোন করুন",
+                    infoEmailLabel: "ইমেইল করুন",
+                    infoLocationLabel: "লোকেশন",
+                    sendingMsg: "বার্তা পাঠানো হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...",
+                    successMsg: "ধন্যবাদ! আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে। খুব শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।",
+                    errorMsg: "দুঃখিত, কোনো একটি প্রযুক্তিগত সমস্যার কারণে বার্তা পাঠানো সম্ভব হয়নি। অনুগ্রহ করে সরাসরি ইমেইল করুন।"
+                },
+                footer: {
+                    copy: "সর্বস্বত্ব সংরক্ষিত।",
+                    subCopy: "আধুনিক এবং সম্পূর্ণ হ্যান্ডক্রাফটেড কোড ও ডিজাইন দিয়ে তৈরি।"
+                }
+            },
+            en: {
+                nav: {
+                    home: "Home",
+                    about: "About",
+                    skills: "Skills",
+                    projects: "Portfolio",
+                    experience: "Experience",
+                    contact: "Contact",
+                    cta: "Get In Touch"
+                },
+                profile: {
+                    name: "Durjoy Sen Paval",
+                    title: "Professional Graphic Designer & Content Creator",
+                    phone: "01866135113",
+                    email: "info.ddtbd@gmail.com",
+                    location: "Khulna, Bangladesh",
+                    avatar: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK8LYlWSvTOQ3dzDjDzTnsx2GZG1wkdn2W3wGPVgkCjuUyuXHCfgKfhHXm1ItnEbpi1crrQmf9eBkGCMgs92Q2e-dGq48JczbQt0bwadr-IPcJodxDOQOb8rjHpFcYS564CGBZ3pfF6wYNUp1kfJ-4AsnocsJ861ly1f2h8gAS81OvRKpiCTqk-0wxkys/s16000/DURJOY%20SEN%20PAVAL%20PHOTO.png",
+                    description: "I am a professional Graphic Designer and Content Creator. My goal is to capture the essence and beauty of any brand using modern visual arts, creative branding, and unique Social Media designs.",
+                    aboutLong: "Over the last 3+ years, I have collaborated with both local and global brands. I believe that elegant, minimalist design possesses a powerful sub-conscious impact. Alongside graphic design, I regularly craft premium video content designed to natively engage target audiences.",
+                    stats: {
+                        projectsCount: "150+",
+                        experienceYears: "3+ Years",
+                        projectsLabel: "Successful Projects Done",
+                        experienceLabel: "Years of Experience"
+                    },
+                    socials: {
+                        facebook: "https://www.facebook.com/durjoysenpavaldsp",
+                        instagram: "https://www.instagram.com/dspdurjoyofficial?igsh=aG50cG9naWwwMGIy",
+                        linkedin: "https://www.linkedin.com/in/durjoysenpaval",
+                        behance: "https://www.behance.net/durjoysenpaval"
+                    }
+                },
+                statusBadge: "Available for new projects",
+                greeting: "Welcome to my website",
+                heroButtons: {
+                    primary: "View My Work",
+                    secondary: "Contact Me"
+                },
+                typingTexts: [
+                    "Professional Graphic Designer",
+                    "Creative Content Creator",
+                    "Branding & Logo Designer",
+                    "Visual Storyteller"
+                ],
+                aboutSection: {
+                    miniTitle: "My Story",
+                    mainTitle: "Primary Goal of My Work",
+                    catchphrase: "Design is not just about arranging pixels; it is about breathing life into a brand.",
+                    btnPhone: "Call Now",
+                    btnEmail: "Send Email",
+                    infographics: [
+                        { title: "Creative Art", desc: "Generating modern & outstanding creative aesthetics.", icon: "fa-wand-magic-sparkles", color: "primary" },
+                        { title: "Brand Identity", desc: "Crafting beautiful stories tailored for every unique brand.", icon: "fa-bullseye", color: "accent" },
+                        { title: "Social Media Design", desc: "Designing trendy, highly engaging and beautiful banners.", icon: "fa-rectangle-ad", color: "primary" },
+                        { title: "Content Creation", desc: "Interactive visual editing and digital content production.", icon: "fa-circle-play", color: "accent" }
+                    ]
+                },
+                skillsSection: {
+                    miniTitle: "My Expertise",
+                    mainTitle: "Technical Skill Set"
+                },
+                skills: [
+                    { name: "Brand Identity Design", level: 95, icon: "fa-palette", color: "#3a86ff" },
+                    { name: "Social Media Campaign Ads", level: 92, icon: "fa-rectangle-ad", color: "#ff007f" },
+                    { name: "Adobe Illustrator & Photoshop", level: 98, icon: "fa-wand-magic-sparkles", color: "#10b981" },
+                    { name: "Video Editing & Content Creation", level: 90, icon: "fa-video", color: "#f59e0b" },
+                    { name: "Typography & Visual Arts", level: 85, icon: "fa-font", color: "#8b5cf6" },
+                    { name: "Motion Graphics & Animation", level: 80, icon: "fa-film", color: "#ec4899" }
+                ],
+                dealPlanner: {
+                    hotDeal: "Special Offer of the Week",
+                    slotTracker: "🔥 Only 2 Project Slots Left This Week!",
+                    title: "Determine your own project budget and custom offer",
+                    sub: "Select your desired category and delivery preference below to instantly lock your personalized discount offer.",
+                    priorityTitle: "24-Hour Express Delivery",
+                    priorityDesc: "Blazing-fast delivery with complete editable source files",
+                    calcLabel: "Deal Calculator",
+                    priceType: "/ Only",
+                    lockBtn: "Book the Deal!",
+                    guarantee: "🛡️ 100% Satisfaction or Money Back Guarantee",
+                    categories: [
+                        { id: "brand", name: "Brand Logo Identity", price: 99, features: ["Custom Vector Assets", "Corporate Guidelines", "3 Creative Directions", "Normal 3 Days Delivery"] },
+                        { id: "print", name: "Premium Print & Flyers", price: 149, features: ["Vector Source Files", "Print-Ready Output (PDF)", "2 Major Revision Rounds", "Normal 5 Days Delivery"] },
+                        { id: "content", name: "Social Media Banner Suite", price: 79, features: ["5 Engaging Banners", "Thumbnail Adjustments", "Unlimited Visual Revisions", "Normal 2 Days Delivery"] },
+                        { id: "video", name: "Cinematography & Editing", price: 129, features: ["Advanced Color Grading", "Licensed Background Audio", "1080p Ultra-HD Master File", "Normal 4 Days Delivery"] }
+                    ]
+                },
+                projectsSection: {
+                    miniTitle: "My Creations",
+                    mainTitle: "Recent Project Gallery",
+                    filterAll: "All",
+                    filterBrand: "Branding",
+                    filterUiux: "Social Media",
+                    filterCreative: "Creative Art",
+                    liveBtn: "Live Preview"
+                },
+                projects: [
+                    {
+                        title: "Premium Brand Identity - EcoPack",
+                        category: "brand",
+                        categoryLabel: "Branding",
+                        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "Complete visual design & artwork suite for an eco-friendly brand."
+                    },
+                    {
+                        title: "Social Media Campaign - Food Fest",
+                        category: "uiux",
+                        categoryLabel: "Social Media",
+                        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "Highly converting social media banners designed for restaurant brands."
+                    },
+                    {
+                        title: "Travel Blog Thumbnails & Art Direction",
+                        category: "creative",
+                        categoryLabel: "Creative Art",
+                        image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "Stunning promotional thumbnails engineered to scale organic visual retention."
+                    },
+                    {
+                        title: "Premium Corporate Flyers & Brochures",
+                        category: "uiux",
+                        categoryLabel: "Social Media",
+                        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "Minimalist and extremely modern flyer layouts for corporate businesses."
+                    },
+                    {
+                        title: "Corporate Re-branding Suite",
+                        category: "brand",
+                        categoryLabel: "Branding",
+                        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "Official brand guidelines, asset cards and brochure layouts for an IT Corporation."
+                    },
+                    {
+                        title: "Digital Sci-fi Metropolis Artwork",
+                        category: "creative",
+                        categoryLabel: "Creative Art",
+                        image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=800",
+                        liveLink: "#",
+                        detailsLink: "#",
+                        desc: "Immersive futuristic cityscape assets loaded with glowing 3D aesthetics."
+                    }
+                ],
+                experienceSection: {
+                    miniTitle: "Experience",
+                    mainTitle: "Professional Career Journey"
+                },
+                experience: [
+                    {
+                        role: "Senior Visual Designer",
+                        company: "Digital Dream Tech (DDT)",
+                        duration: "2023 - Present",
+                        desc: "Spearheading modern social media ad campaigns, professional cinematic color grading for high-end video and photo productions, and directing complete creative brand guidelines."
+                    },
+                    {
+                        role: "Lead Social Media Designer",
+                        company: "Freelance Consultancy (Global Markets)",
+                        duration: "2021 - 2023",
+                        desc: "Successfully crafting highly engaging, trendy, and conversion-optimized social media banners and visual identity designs for over 50 international brands and agencies via Fiverr and Upwork."
+                    }
+                ],
+                testimonialsSection: {
+                    miniTitle: "Testimonials",
+                    mainTitle: "Client Satisfaction & Reviews"
+                },
+                testimonials: [
+                    {
+                        name: "Rafsan Al Hasib",
+                        role: "Founder, Dream Tech IT",
+                        text: "Working alongside Durjoy was absolute gold. He designed our entire logo, brand system, and collateral package so professionally that we couldn't be happier.",
+                        image: "https://placehold.co/100x100/3a86ff/ffffff?text=RH"
+                    },
+                    {
+                        name: "Kaniz Fatema",
+                        role: "Marketing Director, FoodFridg",
+                        text: "He spearheaded our complete brand design and social campaign layout system. The visual engagement rates are extremely impressive. Highly recommended!",
+                        image: "https://placehold.co/100x100/ff007f/ffffff?text=KF"
+                    }
+                ],
+                contactSection: {
+                    miniTitle: "Contact Me",
+                    mainTitle: "Let's Build Something Together",
+                    formTitle: "Send a Direct Message",
+                    labelName: "Your Name",
+                    labelPhone: "Phone Number",
+                    labelEmail: "Email Address",
+                    labelMessage: "Your Message",
+                    placeholderName: "e.g. John Doe",
+                    placeholderPhone: "e.g. +88018xxxxxxxx",
+                    placeholderEmail: "e.g. hello@example.com",
+                    placeholderMessage: "Describe your project in detail here...",
+                    btnSubmit: "Send Message",
+                    infoTitle: "Contact Info",
+                    infoPhoneLabel: "Call Me",
+                    infoEmailLabel: "Email Me",
+                    infoLocationLabel: "My Location",
+                    sendingMsg: "Sending your message, please wait...",
+                    successMsg: "Thank you! Your message was sent successfully. I will connect with you soon.",
+                    errorMsg: "Oops! A technical error occurred. Please try emailing me directly."
+                },
+                footer: {
+                    copy: "All rights reserved.",
+                    subCopy: "Crafted with love, absolute custom layout, and ultra-high speed architecture."
+                }
+            }
+        };
+
+        // Main State Parameters
+        let currentLang = "bn"; 
+        let currentTheme = "dark"; 
+
+        const apis = {
+            telegramBotToken: "8848197490:AAHlNhsbbTysJ7lcP46kZro8CswiLuRk2ws", 
+            telegramChatId: "7110331935",    
+            googleSheetScriptUrl: "https://script.google.com/macros/s/AKfycbwle4t9h41FTsoi_6tQVP5yLBWND5n_CnQcemqLqf5q8DAeRxNYA2v4wcDLd6V79js9fQ/exec" 
+        };
+        const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58752.12871146604!2d89.51336427301026!3d22.84650630739988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff90710e32631f%3A0xf6fa86d526abc73c!2sKhulna!5e0!3m2!1sen!2sbd!4v1717320000000!5m2!1sen!2sbd";
+
+        // Current Selected Deal Parameters
+        let selectedDealId = "brand";
+        let isExpressEnabled = false;
+
+        /******************************************************************
+         * DEFENSIVE TEXT & ID BINDER
+         ******************************************************************/
+        function setSafeText(id, value) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        }
+
+        function setSafeHTML(id, value) {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = value;
+        }
+
+        function convertNumbers(num) {
+            if (currentLang === "en") return num;
+            const bNums = {'0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯'};
+            return String(num).split('').map(c => bNums[c] || c).join('');
+        }
+
+        /******************************************************************
+         * DYNAMIC TRANSLATION RENDERER
+         ******************************************************************/
+        function renderBilingualContent() {
+            const data = BILINGUAL_DATA[currentLang];
+            document.documentElement.lang = currentLang;
+
+            // Nav Rendering
+            const dNav = document.getElementById("desktop-nav");
+            if (dNav) {
+                dNav.innerHTML = `
+                    <a href="#home" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${data.nav.home}</a>
+                    <a href="#about" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${data.nav.about}</a>
+                    <a href="#skills" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${data.nav.skills}</a>
+                    <a href="#deal-planner" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${currentLang === 'bn' ? 'অফার প্ল্যানার' : 'Deal Maker'}</a>
+                    <a href="#projects" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${data.nav.projects}</a>
+                    <a href="#experience" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${data.nav.experience}</a>
+                    <a href="#contact" class="hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider">${data.nav.contact}</a>
+                `;
+            }
+
+            const mobileLinks = document.getElementById("mobile-nav-links");
+            if (mobileLinks) {
+                mobileLinks.innerHTML = `
+                    <a href="#home" class="mobile-link hover:text-primary text-xl font-bold">${data.nav.home}</a>
+                    <a href="#about" class="mobile-link hover:text-primary text-xl font-bold">${data.nav.about}</a>
+                    <a href="#skills" class="mobile-link hover:text-primary text-xl font-bold">${data.nav.skills}</a>
+                    <a href="#deal-planner" class="mobile-link hover:text-primary text-xl font-bold">${currentLang === 'bn' ? 'অফার প্ল্যানার' : 'Deal Maker'}</a>
+                    <a href="#projects" class="mobile-link hover:text-primary text-xl font-bold">${data.nav.projects}</a>
+                    <a href="#experience" class="mobile-link hover:text-primary text-xl font-bold">${data.nav.experience}</a>
+                    <a href="#contact" class="mobile-link hover:text-primary text-xl font-bold">${data.nav.contact}</a>
+                    <a href="#contact" class="mobile-link px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-white text-sm font-semibold">${data.nav.cta}</a>
+                `;
+                // Rebind mobile drawer closer with explicit state clearance
+                document.querySelectorAll(".mobile-link").forEach(link => {
+                    link.addEventListener("click", () => {
+                        const drawer = document.getElementById("mobile-drawer");
+                        const mBtn = document.getElementById("mobile-menu-btn");
+                        if (drawer) {
+                            drawer.classList.remove("translate-x-0", "visible", "pointer-events-auto");
+                            drawer.classList.add("translate-x-full", "invisible", "pointer-events-none");
+                        }
+                        if (mBtn) mBtn.innerHTML = '<i class="fa-solid fa-bars-staggered text-xl"></i>';
+                    });
+                });
+            }
+
+            const ctaBtn = document.getElementById("nav-cta-btn");
+            if (ctaBtn) ctaBtn.textContent = data.nav.cta;
+
+            // Hero Elements securely bound to Bilingual welcome variables
+            setSafeText("status-badge-text", data.statusBadge);
+            setSafeText("hero-greeting", data.greeting);
+            setSafeText("hero-desc", data.profile.description);
+            
+            const pBtn = document.getElementById("hero-primary-btn");
+            if(pBtn) pBtn.innerHTML = `${data.heroButtons.primary} <i class="fa-solid fa-arrow-right ml-1.5"></i>`;
+            setSafeText("hero-secondary-btn", data.heroButtons.secondary);
+
+            // About Elements
+            setSafeText("about-mini-title", data.aboutSection.miniTitle);
+            setSafeText("about-main-title", data.aboutSection.mainTitle);
+            setSafeText("about-catchphrase", data.aboutSection.catchphrase);
+            setSafeText("about-long-desc", data.profile.aboutLong);
+            setSafeText("stat-projects", data.profile.stats.projectsCount);
+            setSafeText("stat-projects-label", data.profile.stats.projectsLabel);
+            setSafeText("stat-experience", data.profile.stats.experienceYears);
+            setSafeText("stat-experience-label", data.profile.stats.experienceLabel);
+            setSafeText("btn-phone-text", data.aboutSection.btnPhone);
+            setSafeText("btn-email-text", data.aboutSection.btnEmail);
+
+            // About Infographic Cards
+            const infoGrid = document.getElementById("about-infographics");
+            if (infoGrid) {
+                infoGrid.innerHTML = "";
+                data.aboutSection.infographics.forEach((item, idx) => {
+                    const colorClass = item.color === "primary" ? "text-primary bg-primary/10 hover:border-primary/20" : "text-accent bg-accent/10 hover:border-accent/20";
+                    const isEven = idx % 2 === 1 ? "md:translate-y-4" : "";
+                    const card = document.createElement("div");
+                    card.className = `glass-panel p-4 rounded-xl border border-white/5 space-y-2.5 shadow-sm transition duration-300 ${colorClass} ${isEven}`;
+                    card.innerHTML = `
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-base bg-white/5">
+                            <i class="fa-solid ${item.icon}"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-[var(--text-color)]">${item.title}</h3>
+                        <p class="text-[10px] text-gray-400 leading-relaxed font-bold">${item.desc}</p>
+                    `;
+                    infoGrid.appendChild(card);
+                });
+            }
+
+            // Skills Section
+            setSafeText("skills-mini-title", data.skillsSection.miniTitle);
+            setSafeText("skills-main-title", data.skillsSection.mainTitle);
+            const skillsGrid = document.getElementById("skills-grid");
+            if (skillsGrid) {
+                skillsGrid.innerHTML = "";
+                data.skills.forEach(skill => {
+                    const card = document.createElement("div");
+                    card.className = "glass-panel p-4 rounded-xl border border-white/5 space-y-3 hover:border-primary/30 transition duration-300";
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-white/5">
+                                    <i class="fa-solid ${skill.icon} text-sm" style="color: ${skill.color}"></i>
+                                </div>
+                                <span class="font-bold text-xs md:text-sm text-[var(--text-color)]">${skill.name}</span>
+                            </div>
+                            <span class="text-xs font-semibold" style="color: ${skill.color}">${convertNumbers(skill.level)}%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                            <div class="h-full rounded-full" style="width: ${skill.level}%; background: linear-gradient(90deg, ${skill.color}, #ffffff55)"></div>
+                        </div>
+                    `;
+                    skillsGrid.appendChild(card);
+                });
+            }
+
+            // Deal Planner Panel
+            setSafeText("deal-hot-deal", data.dealPlanner.hotDeal);
+            setSafeText("deal-slot-tracker", data.dealPlanner.slotTracker);
+            setSafeText("deal-title", data.dealPlanner.title);
+            setSafeText("deal-sub", data.dealPlanner.sub);
+            setSafeText("priority-title", data.dealPlanner.priorityTitle);
+            setSafeText("priority-desc", data.dealPlanner.priorityDesc);
+            setSafeText("deal-calc-label", data.dealPlanner.calcLabel);
+            setSafeText("deal-price-type", data.dealPlanner.priceType);
+            setSafeText("deal-guarantee", data.dealPlanner.guarantee);
+            
+            const lockBtn = document.getElementById("deal-lock-btn");
+            if (lockBtn) {
+                lockBtn.innerHTML = `<span>${data.dealPlanner.lockBtn}</span> <i class="fa-solid fa-lock-open text-[11px]"></i>`;
+            }
+
+            // Deal Plan Categories render
+            const optContainer = document.getElementById("deal-options-container");
+            if (optContainer) {
+                optContainer.innerHTML = "";
+                data.dealPlanner.categories.forEach(opt => {
+                    const isSelected = opt.id === selectedDealId;
+                    const borderClass = isSelected ? "border-primary bg-primary/10" : "border-white/5 hover:border-white/10";
+                    const card = document.createElement("div");
+                    card.className = `p-3.5 rounded-xl border glass-panel cursor-pointer transition duration-300 flex flex-col justify-between ${borderClass} active:scale-95`;
+                    card.setAttribute("data-deal-id", opt.id);
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[11px] font-bold text-[var(--text-color)]">${opt.name}</span>
+                            <div class="w-3.5 h-3.5 rounded-full border border-primary flex items-center justify-center">
+                                ${isSelected ? '<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>' : ''}
+                            </div>
+                        </div>
+                        <span class="text-xs font-semibold text-gray-500">${convertNumbers('$')}${convertNumbers(opt.price)}</span>
+                    `;
+                    card.addEventListener("click", () => {
+                        selectedDealId = opt.id;
+                        renderBilingualContent(); // Refresh dynamic numbers
+                    });
+                    optContainer.appendChild(card);
+                });
+            }
+
+            // Calculate active deal pricing
+            const activeCategory = data.dealPlanner.categories.find(c => c.id === selectedDealId);
+            if (activeCategory) {
+                let finalPrice = activeCategory.price;
+                if (isExpressEnabled) {
+                    finalPrice += 49; 
+                }
+                setSafeText("deal-price-amount", convertNumbers('$') + convertNumbers(finalPrice));
+
+                // Feature Checklist injection
+                const featuresList = document.getElementById("deal-features-list");
+                if (featuresList) {
+                    featuresList.innerHTML = "";
+                    activeCategory.features.forEach(f => {
+                        const li = document.createElement("li");
+                        li.className = "flex items-center gap-2";
+                        li.innerHTML = `<i class="fa-solid fa-circle-check text-primary text-[10px]"></i> <span>${f}</span>`;
+                        featuresList.appendChild(li);
+                    });
+                    if (isExpressEnabled) {
+                        const li = document.createElement("li");
+                        li.className = "flex items-center gap-2 text-accent font-bold animate-pulse";
+                        li.innerHTML = `<i class="fa-solid fa-circle-check text-accent text-[10px]"></i> <span>${currentLang === 'bn' ? '২৪-ঘণ্টা স্পেশাল এক্সপ্রেস' : '24-Hour Special Express'}</span>`;
+                        featuresList.appendChild(li);
+                    }
+                }
+            }
+
+            // Projects Filters
+            setSafeText("projects-mini-title", data.projectsSection.miniTitle);
+            setSafeText("projects-main-title", data.projectsSection.mainTitle);
+            const pFilters = document.getElementById("portfolio-filters");
+            if (pFilters) {
+                pFilters.innerHTML = `
+                    <button class="filter-btn active px-4 py-1.5 rounded-full text-xs font-semibold transition duration-300 bg-primary text-white" data-filter="all">${data.projectsSection.filterAll}</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold transition duration-300 glass-panel text-gray-300" data-filter="brand">${data.projectsSection.filterBrand}</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold transition duration-300 glass-panel text-gray-300" data-filter="uiux">${data.projectsSection.filterUiux}</button>
+                    <button class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold transition duration-300 glass-panel text-gray-300" data-filter="creative">${data.projectsSection.filterCreative}</button>
+                `;
+                document.querySelectorAll(".filter-btn").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        document.querySelectorAll(".filter-btn").forEach(b => {
+                            b.classList.remove("active", "bg-primary", "text-white");
+                            b.classList.add("glass-panel", "text-gray-300");
+                        });
+                        btn.classList.add("active", "bg-primary", "text-white");
+                        btn.classList.remove("glass-panel", "text-gray-300");
+                        
+                        const filterVal = btn.getAttribute("data-filter");
+                        renderProjectCards(filterVal);
+                    });
+                });
+            }
+
+            renderProjectCards("all");
+
+            // Upgraded Professional Experience layout (Extremely compact card but with prominent large texts)
+            setSafeText("experience-mini-title", data.experienceSection.miniTitle);
+            setSafeText("experience-main-title", data.experienceSection.mainTitle);
+            const timeline = document.getElementById("experience-timeline");
+            if (timeline) {
+                timeline.innerHTML = "";
+                data.experience.forEach((exp, index) => {
+                    const item = document.createElement("div");
+                    item.className = "flex flex-col md:flex-row gap-4 items-stretch group transition-all duration-300";
+                    item.innerHTML = `
+                        <!-- Left Staggered Side (Branding & Golden Year Badge) -->
+                        <div class="md:w-1/4 flex md:flex-col justify-between md:justify-start items-center md:items-end md:text-right shrink-0 py-1 pr-4 border-b md:border-b-0 md:border-r border-white/5 md:pb-0 pb-3 gap-2">
+                            <span class="text-xl md:text-2xl font-black text-primary group-hover:text-accent transition-colors duration-300 tracking-tight leading-none">${convertNumbers(exp.duration)}</span>
+                            <span class="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-widest">${index === 0 ? 'Full Time' : 'Freelance'}</span>
+                        </div>
+
+                        <!-- Right Card Side (Compact, sleek with prominent text sizes) -->
+                        <div class="flex-1 glass-panel p-5 rounded-2xl border border-white/5 hover:border-primary/20 hover:shadow-[0_10px_25px_rgba(58,134,255,0.08)] transition-all duration-500 bg-gradient-to-r from-white/5 to-transparent">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                                <h3 class="text-lg md:text-xl font-extrabold text-[var(--text-color)] group-hover:text-primary transition duration-300 tracking-tight leading-snug">${exp.role}</h3>
+                                <span class="text-xs font-extrabold text-accent bg-accent/10 px-2.5 py-1 rounded-lg border border-accent/10 shrink-0">${exp.company}</span>
+                            </div>
+                            
+                            <p class="text-xs md:text-sm leading-relaxed font-semibold text-gray-300 text-[var(--text-muted)] mb-3">
+                                ${exp.desc}
+                            </p>
+                            
+                            <!-- Key Achievements under role -->
+                            <div class="flex flex-wrap gap-x-4 gap-y-2 pt-3 border-t border-white/5 text-[10px] md:text-xs text-gray-400 font-bold">
+                                ${index === 0 
+                                    ? `
+                                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-primary"></i> <span>সিনেমাটিক কালার গ্রেডিং</span></div>
+                                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-primary"></i> <span>বিজ্ঞাপন ক্যাম্পেইন ডিজাইন</span></div>
+                                      `
+                                    : `
+                                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent"></i> <span>৫০+ আন্তর্জাতিক ক্লায়েন্ট</span></div>
+                                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-accent"></i> <span>হাই-কনভার্সন ব্যানার আর্ট</span></div>
+                                      `
+                                }
+                            </div>
+                        </div>
+                    `;
+                    timeline.appendChild(item);
+                });
+            }
+
+            // Testimonials
+            setSafeText("testimonials-mini-title", data.testimonialsSection.miniTitle);
+            setSafeText("testimonials-main-title", data.testimonialsSection.mainTitle);
+            const testGrid = document.getElementById("testimonials-grid");
+            if (testGrid) {
+                testGrid.innerHTML = "";
+                data.testimonials.forEach(test => {
+                    const card = document.createElement("div");
+                    card.className = "glass-panel p-5 rounded-2xl border border-white/5 relative flex flex-col justify-between hover:border-accent/30 transition duration-300";
+                    card.innerHTML = `
+                        <div class="space-y-3">
+                            <div class="text-accent text-xl"><i class="fa-solid fa-quote-left"></i></div>
+                            <p class="text-gray-300 text-xs leading-relaxed italic font-bold">"${test.text}"</p>
+                        </div>
+                        <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
+                            <img src="${test.image}" alt="${test.name}" class="w-9 h-9 rounded-full object-cover">
+                            <div>
+                                <h4 class="text-xs font-bold text-[var(--text-color)]">${test.name}</h4>
+                                <span class="text-[10px] text-gray-400 font-bold">${test.role}</span>
+                            </div>
+                        </div>
+                    `;
+                    testGrid.appendChild(card);
+                });
+            }
+
+            // Contact Form Language Adapt
+            setSafeText("contact-mini-title", data.contactSection.miniTitle);
+            setSafeText("contact-main-title", data.contactSection.mainTitle);
+            setSafeText("form-card-title", data.contactSection.formTitle);
+
+            setSafeHTML("label-name", `${data.contactSection.labelName} <span class="text-accent">*</span>`);
+            setSafeHTML("label-phone", `${data.contactSection.labelPhone} <span class="text-accent">*</span>`);
+            setSafeHTML("label-email", `${data.contactSection.labelEmail} <span class="text-accent">*</span>`);
+            setSafeHTML("label-message", `${data.contactSection.labelMessage} <span class="text-accent">*</span>`);
+
+            const inName = document.getElementById("input-name"); if (inName) inName.placeholder = data.contactSection.placeholderName;
+            const inPhone = document.getElementById("input-phone"); if (inPhone) inPhone.placeholder = data.contactSection.placeholderPhone;
+            const inEmail = document.getElementById("input-email"); if (inEmail) inEmail.placeholder = data.contactSection.placeholderEmail;
+            const inMsg = document.getElementById("input-message"); if (inMsg) inMsg.placeholder = data.contactSection.placeholderMessage;
+
+            setSafeText("btn-submit-text", data.contactSection.btnSubmit);
+
+            setSafeText("info-card-title", data.contactSection.infoTitle);
+            setSafeText("info-phone-label", data.contactSection.infoPhoneLabel);
+            setSafeText("info-email-label", data.contactSection.infoEmailLabel);
+            setSafeText("info-location-label", data.contactSection.infoLocationLabel);
+
+            const iPh = document.getElementById("info-phone"); if (iPh) { iPh.href = `tel:${data.profile.phone}`; iPh.textContent = convertNumbers(data.profile.phone); }
+            const iEm = document.getElementById("info-email"); if (iEm) { iEm.href = `mailto:${data.profile.email}`; iEm.textContent = data.profile.email; }
+            setSafeText("info-location", data.profile.location);
+
+            setSafeText("footer-copy", data.footer.copy);
+            setSafeText("footer-sub-copy", data.footer.subCopy);
+
+            setSafeText("lang-btn-text", currentLang === "bn" ? "English" : "বাংলা");
+            setSafeText("lang-btn-text-mobile", currentLang === "bn" ? "EN" : "BN");
+
+            initTypewriter();
+
+            // Re-trigger highly optimized IntersectionObserver after rendering
+            initRevealObserver();
+        }
+
+        function renderProjectCards(filter) {
+            const data = BILINGUAL_DATA[currentLang];
+            const grid = document.getElementById("projects-grid");
+            if (!grid) return;
+            grid.innerHTML = "";
+            const filtered = filter === "all" ? data.projects : data.projects.filter(p => p.category === filter);
+            
+            filtered.forEach(project => {
+                const card = document.createElement("div");
+                card.className = "glass-panel rounded-2xl border border-white/5 overflow-hidden group hover:shadow-[0_4px_15px_rgba(58,134,255,0.1)] transition-all duration-300 flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="portfolio-card-img-container">
+                            <img src="${project.image}" alt="${project.title}" class="portfolio-card-img w-full absolute top-0 left-0" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0d121e/3a86ff?text=Project+Preview'">
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <span class="text-[10px] uppercase text-primary tracking-widest font-semibold">${project.categoryLabel}</span>
+                            <h3 class="text-base font-bold text-[var(--text-color)] group-hover:text-primary transition duration-300">${project.title}</h3>
+                            <p class="text-xs text-gray-400 font-bold">${project.desc || ''}</p>
+                        </div>
+                    </div>
+                    <div class="p-4 pt-0 flex gap-3">
+                        <a href="${project.liveLink}" class="flex-1 py-2 rounded-xl bg-primary/20 hover:bg-primary text-white text-center text-[10px] font-bold transition duration-300 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> ${data.projectsSection.liveBtn}
+                        </a>
+                        <a href="${project.detailsLink}" class="px-3 py-2 rounded-xl border border-white/10 text-[var(--text-color)] hover:bg-white/10 text-center text-[10px] font-bold transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        /******************************************************************
+         * TYPEWRITER CONTROLLER
+         ******************************************************************/
+        let textIdx = 0;
+        let charIdx = 0;
+        let typeTimeout, eraseTimeout;
+        const typedTextElement = document.getElementById("typed-text");
+
+        function initTypewriter() {
+            clearTimeout(typeTimeout);
+            clearTimeout(eraseTimeout);
+            if(typedTextElement) {
+                typedTextElement.textContent = "";
+                textIdx = 0;
+                charIdx = 0;
+                type();
+            }
+        }
+        
+        function type() {
+            const list = BILINGUAL_DATA[currentLang].typingTexts;
+            if(!list || !list.length || !typedTextElement) return;
+
+            if (charIdx < list[textIdx].length) {
+                typedTextElement.textContent += list[textIdx].charAt(charIdx);
+                charIdx++;
+                typeTimeout = setTimeout(type, 100);
+            } else {
+                eraseTimeout = setTimeout(erase, 2000);
+            }
+        }
+
+        function erase() {
+            const list = BILINGUAL_DATA[currentLang].typingTexts;
+            if(!list || !list.length || !typedTextElement) return;
+
+            if (charIdx > 0) {
+                typedTextElement.textContent = list[textIdx].substring(0, charIdx - 1);
+                charIdx--;
+                eraseTimeout = setTimeout(erase, 50);
+            } else {
+                textIdx = (textIdx + 1) % list.length;
+                typeTimeout = setTimeout(type, 500);
+            }
+        }
+
+        /******************************************************************
+         * HIGH CAPACITY HARDWARE-ACCELERATED REVEAL INTERSECTION OBSERVER
+         * Completely avoids CPU blocking scroll event listeners.
+         ******************************************************************/
+        let revealObserver;
+        function initRevealObserver() {
+            if (revealObserver) revealObserver.disconnect();
+            
+            revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.05,
+                rootMargin: "0px 0px -10px 0px"
+            });
+
+            document.querySelectorAll(".reveal").forEach(el => {
+                revealObserver.observe(el);
+            });
+        }
+
+        /******************************************************************
+         * DOM LIFECYCLE INITIALIZER & EVENT BINDER
+         ******************************************************************/
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Set Dynamic Iframe Map Source on Load
+            const gMap = document.getElementById("google-map-iframe");
+            if (gMap) gMap.src = mapEmbedUrl;
+
+            // Render Content
+            renderBilingualContent();
+
+            // Language Toggle Switch Events (Ensuring responsive clicks on mobile)
+            const lToggle = document.getElementById("lang-toggle-btn");
+            const lToggleMobile = document.getElementById("lang-toggle-btn-mobile");
+            const switchLang = () => {
+                currentLang = currentLang === "bn" ? "en" : "bn";
+                renderBilingualContent();
+            };
+            if(lToggle) lToggle.addEventListener("click", switchLang);
+            if(lToggleMobile) lToggleMobile.addEventListener("click", switchLang);
+
+            // Adaptive Map Contrast update based on active theme
+            function updateMapContrast() {
+                const mapIframe = document.getElementById("google-map-iframe");
+                if (mapIframe) {
+                    if (currentTheme === "dark") {
+                        mapIframe.className = "w-full h-full rounded-2xl grayscale invert contrast-125 opacity-80 transition-all duration-500";
+                    } else {
+                        mapIframe.className = "w-full h-full rounded-2xl transition-all duration-500 shadow-inner";
+                    }
+                }
+            }
+
+            // Theme Switcher Events (Dark/Light Seamless Transition with high-contrast rules)
+            const themeBtn = document.getElementById("theme-toggle-btn");
+            const themeBtnMobile = document.getElementById("theme-toggle-btn-mobile");
+            const themeIcon = document.getElementById("theme-icon");
+            const themeIconMobile = document.getElementById("theme-icon-mobile");
+
+            const toggleTheme = () => {
+                currentTheme = currentTheme === "dark" ? "light" : "dark";
+                if (currentTheme === "light") {
+                    document.body.classList.add("light-mode");
+                    if (themeIcon) themeIcon.className = "fa-solid fa-sun text-amber-500 text-sm";
+                    if (themeIconMobile) themeIconMobile.className = "fa-solid fa-sun text-amber-500 text-xs";
+                } else {
+                    document.body.classList.remove("light-mode");
+                    if (themeIcon) themeIcon.className = "fa-solid fa-moon text-primary text-sm";
+                    if (themeIconMobile) themeIconMobile.className = "fa-solid fa-moon text-primary text-xs";
+                }
+                updateMapContrast();
+                renderBilingualContent(); // Force contrast update across inline states
+            };
+
+            if(themeBtn) themeBtn.addEventListener("click", toggleTheme);
+            if(themeBtnMobile) themeBtnMobile.addEventListener("click", toggleTheme);
+
+            // Express Speed Delivery Listener
+            const expToggle = document.getElementById("express-toggle");
+            if (expToggle) {
+                expToggle.addEventListener("change", (e) => {
+                    isExpressEnabled = e.target.checked;
+                    renderBilingualContent(); 
+                });
+            }
+
+            // Deal Lock Trigger Event listener (Creates order structure template inside Form)
+            const dealLockBtn = document.getElementById("deal-lock-btn");
+            if (dealLockBtn) {
+                dealLockBtn.addEventListener("click", () => {
+                    const data = BILINGUAL_DATA[currentLang];
+                    const activeCat = data.dealPlanner.categories.find(c => c.id === selectedDealId);
+                    if (activeCat) {
+                        let price = activeCat.price;
+                        if (isExpressEnabled) price += 49;
+
+                        const expressLabel = isExpressEnabled 
+                            ? (currentLang === 'bn' ? "✅ ২৪-ঘণ্টা এক্সপ্রেস ডেলিভারি সক্রিয়" : "✅ 24-Hour Express Delivery Enabled")
+                            : (currentLang === 'bn' ? "❌ এক্সপ্রেস ডেলিভারি নেই" : "❌ No Express Delivery");
+
+                        const presetMessage = currentLang === 'bn'
+                            ? `আমি আপনার সাথে "${activeCat.name}" ডিলটি করতে আগ্রহী!\n\n💵 অফার বাজেট: ${convertNumbers('$')}${convertNumbers(price)}\n⚡ ডেলিভারি গতি: ${expressLabel}\n\nঅনুগ্রহ করে আমার সাথে যোগাযোগ করুন।`
+                            : `I would love to book the deal for "${activeCat.name}" with you!\n\n💵 Package Price: $${price}\n⚡ Delivery Speed: ${expressLabel}\n\nPlease get back to me.`;
+                        
+                        const inputMsg = document.getElementById("input-message");
+                        if (inputMsg) {
+                            inputMsg.value = presetMessage;
+                            inputMsg.focus();
+                        }
+                        
+                        // Scroll flawlessly to Form
+                        const contactSec = document.getElementById("contact");
+                        if (contactSec) {
+                            contactSec.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            }
+
+            // Render Social Network Links
+            const socialGrids = [document.getElementById("hero-socials"), document.getElementById("footer-socials")];
+            const socialIcons = { facebook: "fa-facebook-f", instagram: "fa-instagram", linkedin: "fa-linkedin-in", behance: "fa-behance" };
+
+            socialGrids.forEach(cont => {
+                if (!cont) return;
+                cont.innerHTML = "";
+                Object.keys(BILINGUAL_DATA.bn.profile.socials).forEach(key => {
+                    const link = BILINGUAL_DATA.bn.profile.socials[key];
+                    const a = document.createElement("a");
+                    a.href = link;
+                    a.target = "_blank";
+                    a.className = "w-10 h-10 rounded-full glass-panel border border-white/5 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 hover:shadow-md transition duration-300";
+                    a.innerHTML = `<i class="fa-brands ${socialIcons[key] || 'fa-globe'} text-xs"></i>`;
+                    cont.appendChild(a);
+                });
+            });
+
+            // Mobile Navigation Toggle (Ensuring explicit clean removals of conflict state classes)
+            const mBtn = document.getElementById("mobile-menu-btn");
+            const mobileDrawer = document.getElementById("mobile-drawer");
+
+            if (mBtn && mobileDrawer) {
+                mBtn.addEventListener("click", () => {
+                    const isOpen = mobileDrawer.classList.contains("translate-x-0");
+                    if (isOpen) {
+                        mobileDrawer.classList.remove("translate-x-0", "visible", "pointer-events-auto");
+                        mobileDrawer.classList.add("translate-x-full", "invisible", "pointer-events-none");
+                        mBtn.innerHTML = '<i class="fa-solid fa-bars-staggered text-xl"></i>';
+                    } else {
+                        mobileDrawer.classList.remove("translate-x-full", "invisible", "pointer-events-none");
+                        mobileDrawer.classList.add("translate-x-0", "visible", "pointer-events-auto");
+                        mBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+                    }
+                });
+            }
+
+            // Dynamic header slim shadow glow
+            const header = document.querySelector("header");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 40) {
+                    header.classList.add("shadow-md");
+                } else {
+                    header.classList.remove("shadow-md");
+                }
+            }, { passive: true }); // Passive listener optimize for mobile high-speed scrolling
+
+            // Contact Form Submit Handler with URLSearchParams CORS fix
+            const cForm = document.getElementById("portfolio-contact-form");
+            const feedbackBox = document.getElementById("contact-feedback");
+
+            if (cForm) {
+                cForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const dict = BILINGUAL_DATA[currentLang].contactSection;
+                    
+                    feedbackBox.className = "p-3 rounded-xl text-xs font-semibold mb-3 bg-primary/20 text-primary flex items-center gap-1.5";
+                    feedbackBox.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> ${dict.sendingMsg}`;
+                    feedbackBox.classList.remove("hidden");
+
+                    const formData = new FormData(cForm);
+                    const data = {
+                        name: formData.get("name"),
+                        phone: formData.get("phone"),
+                        email: formData.get("email"),
+                        message: formData.get("message")
+                    };
+
+                    const textMessage = `📩 নতুন প্রজেক্ট যোগাযোগ:\n\n👤 নামঃ ${data.name}\n📞 ফোনঃ ${data.phone}\n📧 ইমেইলঃ ${data.email}\n💬 বার্তাঃ ${data.message}`;
+
+                    let telegramSuccess = false;
+                    let sheetSuccess = false;
+
+                    // Promise 1: Send to Telegram Bot (Highly compatible URLSearchParams method)
+                    const telegramPromise = (async () => {
+                        if (apis.telegramBotToken && apis.telegramChatId) {
+                            try {
+                                const tgUrl = `https://api.telegram.org/bot${apis.telegramBotToken}/sendMessage`;
+                                const params = new URLSearchParams();
+                                params.append("chat_id", apis.telegramChatId);
+                                params.append("text", textMessage);
+
+                                const res = await fetch(tgUrl, {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                    body: params
+                                });
+                                if (res.ok) {
+                                    telegramSuccess = true;
+                                }
+                            } catch (err) {
+                                console.error("Telegram Transmission Error:", err);
+                            }
+                        } else {
+                            telegramSuccess = true; // Skip if bot is not configured
+                        }
+                    })();
+
+                    // Promise 2: Send to Google Sheets (Using text/plain to entirely bypass CORS Preflight blocks)
+                    const sheetPromise = (async () => {
+                        if (apis.googleSheetScriptUrl) {
+                            try {
+                                // G-Apps Script accepts "text/plain" beautifully and extracts it via e.postData.contents
+                                await fetch(apis.googleSheetScriptUrl, {
+                                    method: "POST",
+                                    mode: "no-cors",
+                                    headers: { 
+                                        "Content-Type": "text/plain;charset=utf-8" 
+                                    },
+                                    body: JSON.stringify(data)
+                                });
+                                sheetSuccess = true; // Resolves successfully
+                            } catch (err) {
+                                console.error("Google Sheets Transmission Error:", err);
+                            }
+                        } else {
+                            sheetSuccess = true; 
+                        }
+                    })();
+
+                    // Execute both network transmissions simultaneously!
+                    await Promise.all([telegramPromise, sheetPromise]);
+
+                    // Provide feedback based on parallel execution success
+                    if (telegramSuccess || sheetSuccess) {
+                        feedbackBox.className = "p-3 rounded-xl text-xs font-semibold mb-3 bg-emerald-500/20 text-emerald-400 flex items-center gap-1.5";
+                        feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${dict.successMsg}`;
+                        cForm.reset();
+                    } else {
+                        feedbackBox.className = "p-3 rounded-xl text-xs font-semibold mb-3 bg-red-500/20 text-red-400 flex items-center gap-1.5";
+                        feedbackBox.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> ${dict.errorMsg}`;
+                    }
+
+                    setTimeout(() => {
+                        feedbackBox.classList.add("hidden");
+                    }, 6000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
